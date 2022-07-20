@@ -17,7 +17,6 @@ function ProductDetails({id = 0}) {
     fetch(`https://fakestoreapi.com/products/${id}`)
           .then(res=>res.json())
           .then(json=>setProducto(json))
-
   }, [id])
 
   console.log(producto)
