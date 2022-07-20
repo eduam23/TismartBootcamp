@@ -1,0 +1,115 @@
+.sidebar {
+    width: 250px;
+    max-width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    color:rgb(85, 85, 85);
+    z-index: 2;
+}
+
+.sidebar hr{
+    width: 75%;
+    color:rgb(173, 173, 173);
+    border: none;
+    border-bottom: 1px solid #666;
+    opacity: 0.2;
+}
+
+.sidebar_logo {
+    margin: 0.5em 0 0 1em;
+}
+
+.sidebar_logo img{
+    width: 6em;
+    padding: 1em 0 0 1em;
+}
+
+.sidebar_logo img:hover{
+    cursor: pointer;
+}
+
+.sidebar_menu {
+    padding: 1.5em 1em 1.5em 2.2em;
+}
+
+.sidebar_menu_buttongroup {
+    display:flex;
+    flex-direction: column;
+}
+
+.sidebar_menu_buttongroup button {
+    margin: 0.2em 0;
+    padding: 1em 0.5em;
+    border-radius: 10px;
+    border:none;
+    width: 95%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: 0.5s;
+    color:rgb(137, 137, 137);
+}
+
+.sidebar_menu_buttongroup button:hover{
+    background-color: rgb(0, 110, 255);
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    cursor: pointer;
+}
+
+.sidebar_menu_buttongroup_buttonicon {
+    padding: 0 0.5em;
+}
+
+
+.sidebar_menu_buttongroup button span{
+    float: right;
+    right: 0;
+    background-color: red;
+    padding: 0.3em 0.6em;
+    border-radius: 100%;
+    align-items: center;
+    margin-left: 1.5em;
+    color: #fff;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.sidebar_refer {
+    background-color: rgb(0, 110, 255,0.1);
+    width: 60%;
+    margin: auto;
+    margin-top: 3em;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar_refer img{
+    width: 150px;
+    margin-top: -45px;
+}
+
+.sidebar_refer p {
+    font-weight: bold;
+    color: black;
+}
+
+.sidebar_refer button{
+    padding: 0.5em 0.5em;
+    border-radius: 10px;
+    border:none;
+    background-color: rgb(0, 110, 255);
+    color: white;
+    margin-bottom: 1em;
+    transition: 0.5s;
+}
+
+.sidebar_refer button:hover{
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}

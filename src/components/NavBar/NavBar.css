@@ -1,0 +1,98 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(253, 253, 253);
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+.navbar_searchInput {
+    margin: 0.5em 2em;
+    padding: 0.1em 1em;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(244, 244, 244);
+}
+
+.navbar_searchInput_searchIcon {
+    color:rgb(172, 172, 172);
+}
+
+.navbar_searchInput_searchIcon:hover {
+    cursor: pointer;
+}
+
+.navbar_searchInput input {
+    border: none;
+    padding: 1em;
+    background-color: transparent;
+    border-radius: 10px;
+    outline: none;
+}
+
+.navbar_icons {
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.navbar_icons_newMessage:hover {
+    cursor: pointer;
+}
+
+.navbar_icons_newMessage_flag {
+    position: relative;
+    top:-15px;
+    left: 25px;
+}
+
+.navbar_icons_newMessage_flag svg{
+    font-size: 10px;
+    color: red;
+}
+
+.navbar_icons_alarm_flag {
+    position: relative;
+    top:-15px;
+    left: 25px;
+    
+}
+
+.navbar_icons_alarm_flag svg{
+    font-size: 10px;
+    color:red;
+}
+
+.navbar_icons_alarm:hover {
+    cursor: pointer;
+}
+
+.navbar_icons_alarm span {
+    width: 10px;
+    height: 10px;
+}
+
+.navbar_icons img {
+    width: 40px;
+    height: auto;
+    border-radius: 100%;
+}
+
+.navbar_icons img:hover{
+    cursor: pointer;
+}
+
+@media (max-width:730px) {
+    .navbar {
+        flex-direction: column;
+    }
+}

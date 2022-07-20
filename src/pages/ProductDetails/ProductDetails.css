@@ -1,0 +1,26 @@
+.productPageContent {
+    width: calc(100vw-250px);
+    margin-left: 250px;
+    background-color: rgb(239, 239, 239);
+}
+
+.productPageContent_groupSection {
+    display: flex;
+    overflow: scroll;
+}
+
+.productoPage_pageContent_sectionOne {
+    flex-grow: 2;
+    max-width: 700px;
+}
+
+.productoPage_pageContent_sectionTwo {
+    flex-grow: 1;
+}
+
+@media (min-width:1450px) {
+    .productoPage_pageContent_sectionOne {
+        max-width: 1200px;
+    }
+}
+

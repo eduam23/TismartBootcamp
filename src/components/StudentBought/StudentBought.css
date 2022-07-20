@@ -1,0 +1,72 @@
+.studentBoughtContent {
+    padding: 1em;
+}
+
+.studentBoughtContent h3{
+    font-size: 25px;
+    padding-left: 0.5em;
+}
+
+.studentBoughtContent_card {
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start;
+    border-radius: 20px;
+    padding: 0;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    width: 93%;
+    transition: 0.5s;
+}
+
+.studentBoughtContent_card:hover{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    cursor: pointer;
+}
+
+.studentBoughtContent_card img{
+    max-width: 120px;
+    height: auto;
+    border-radius: 5%;
+}
+
+.studentBoughtContent_card_info{
+    flex-grow: 2;
+    margin: auto;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.studentBoughtContent_card_info strong{
+    background-color: rgb(255, 240, 146);
+    padding: 0.25em 1em;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.studentBoughtContent_card_info strong:hover{
+    background-color: rgb(255, 234, 99);
+}
+
+.studentBoughtContent_card_info span{
+    font-weight: bold;
+    padding-left: 1em;
+}
+
+.studentBoughtContent_hearthIcon{
+    color: rgb(247, 84, 84);
+    background-color: rgb(253, 208, 208);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    margin: 0 1em;
+    padding: 0.25em;
+    transition: 0.5s;
+}
+
+.studentBoughtContent_hearthIcon:hover{
+    background-color: rgb(255, 168, 168);
+    color: rgb(255, 224, 224);
+}

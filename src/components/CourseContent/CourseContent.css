@@ -1,0 +1,37 @@
+.courseContent {
+    padding-top: 3em;
+}
+
+.courseContent h3 {
+    font-size: 25px;
+    padding-left: 0.65em;
+}
+
+.courseContent_card {
+    background-color: #fff;
+    border-radius: 20px;
+    margin-left: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    width: 90%;
+    transition: 0.5s;
+}
+
+.courseContent_card:hover{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    cursor: pointer;
+}
+
+.courseContent_card p {
+    font-weight: bold;
+    padding-left: 1em;
+}
+
+.courseContent_card time {
+    font-weight: bold;
+    padding-right: 1em;
+}

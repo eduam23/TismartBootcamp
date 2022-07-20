@@ -1,0 +1,21 @@
+.courseVideoContent {
+    margin: 1em 2em;
+    background-color: inherit;
+}
+
+.courseVideoContent h1 {
+    color: rgb(81, 81, 81);
+}
+
+.courseVideoContent h2 {
+    font-size:25px;
+    color: rgb(49, 49, 49);
+}
+
+.courseVideoContent_reactPlayerContent{
+    width: 100% !important;
+    max-width: 896px !important;
+    min-height: 504px !important;
+    border-radius: 10px !important;
+}
+
