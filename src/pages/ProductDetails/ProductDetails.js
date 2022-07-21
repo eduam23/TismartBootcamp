@@ -19,23 +19,20 @@ function ProductDetails({id = 0}) {
           .then(json=>setProducto(json))
   }, [id])
 
-  console.log(producto)
+  // console.log(producto):
 
   const {title, description, price, category, image} = producto;
 
   return (
     <>
       <SideBar />
-
       <div className="productPageContent">
         <NavBar />
-
         <div className="productPageContent_groupSection">
           <section className="productoPage_pageContent_sectionOne">
             <CourseVideo titleProduct={title}/>
             <MenuContent descripProduct={description} priceProduct={price} categoryProduct={category}/>
           </section>
-
           <section className="productoPage_pageContent_sectionTwo">
             <CourseContent />
             <StudentBought titleProduct={title} urlImageProduct={image} priceProduct={price} />
