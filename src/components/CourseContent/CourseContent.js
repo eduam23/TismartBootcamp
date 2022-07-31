@@ -1,29 +1,29 @@
 import React from 'react';
 import './CourseContent.css';
 
-function CourseContent() {
+function CourseContent({titleProduct = 'Cargando...', categoryProduct = 'Cargando...', priceProduct = '0.00', rating = {rate:'0.00', count:'0.00'}}) {
   return (
     <div className='courseContent'>
       <h3>Product Content</h3>
       <div className='courseContent_card'>
-        <p>What is UI Design?</p>
-        <time>00:45</time>
+        <p>Title: </p>
+        <span>{titleProduct}</span>
       </div>
       <div className='courseContent_card'>
-        <p>How to Concept?</p>
-        <time>00:45</time>
+        <p>Category: </p>
+        <span>{categoryProduct}</span>
       </div>
       <div className='courseContent_card'>
-        <p>What is UI Design?</p>
-        <time>00:45</time>
+        <p>Price: </p>
+        <span>s/. {priceProduct}</span>
       </div>
       <div className='courseContent_card'>
-        <p>What is UI Design?</p>
-        <time>00:45</time>
+        <p>Rate: </p>
+        <span>{rating.rate}</span>
       </div>
       <div className='courseContent_card'>
-        <p>What is UI Design?</p>
-        <time>00:45</time>
+        <p>Count: </p>
+        <span>{rating.count}</span>
       </div>
     </div>
   )

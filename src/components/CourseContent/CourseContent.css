@@ -29,9 +29,10 @@
 .courseContent_card p {
     font-weight: bold;
     padding-left: 1em;
+    margin-right: 1rem;
 }
 
-.courseContent_card time {
+.courseContent_card span {
     font-weight: bold;
     padding-right: 1em;
 }
