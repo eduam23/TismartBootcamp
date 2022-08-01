@@ -5,14 +5,16 @@ import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import "./NavBar.css";
 
-function NavBar() {
+function NavBar({handleRowsFilter}) {
+
+
   return (
     <div className="navbar">
       <div className="navbar_searchInput">
-        <label for="searchInput">
+        <label htmlFor="searchInput">
           <SearchIcon className="navbar_searchInput_searchIcon"/>
         </label>
-        <input type="text" placeholder="search type..." id="searchInput"></input>
+        <input  type="text" placeholder="search product..." id="searchInput" onChange={handleRowsFilter}></input>
       </div>
       <div className="navbar_icons">
         <div className="navbar_icons_newMessage">

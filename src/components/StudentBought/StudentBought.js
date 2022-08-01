@@ -1,12 +1,13 @@
 import React from "react";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import "./StudentBought.css";
+import { URL_IMG_PLACEHOLDER } from "../../utils/Config";
 
-const urlImagePlaceholder = 'https://ebdental.es/wp-content/themes/prodent/images/no-image.jpg';
 
-function StudentBought({ titleProduct = 'Cargando...', urlImageProduct = urlImagePlaceholder, priceProduct = '0.00'}) {
+
+function StudentBought({ titleProduct = 'Cargando...', urlImageProduct = URL_IMG_PLACEHOLDER, priceProduct = '0.00'}) {
   return (
-    <div class="studentBoughtContent">
+    <div className="studentBoughtContent">
       <h3>Customers Also Bought</h3>
       <div className="studentBoughtContent_card">
 

@@ -6,10 +6,13 @@ import CourseContent from "../../components/CourseContent/CourseContent";
 import StudentBought from "../../components/StudentBought/StudentBought";
 import "./ProductDetails.css";
 import CourseVideo from "../../components/CourseVideo/CourseVideo";
+import { useParams } from "react-router-dom";
 
 
 
-function ProductDetails({id = 0}) {
+function ProductDetails() {
+
+  const { id } = useParams();
 
   const [producto, setProducto] = useState({})
 
@@ -21,7 +24,8 @@ function ProductDetails({id = 0}) {
 
   // console.log(producto):
 
-  const {title, description, price, category, image} = producto;
+  const {title, description, price, category, image, rating} = producto;
+
 
   return (
     <>
@@ -30,12 +34,12 @@ function ProductDetails({id = 0}) {
         <NavBar />
         <div className="productPageContent_groupSection">
           <section className="productoPage_pageContent_sectionOne">
-            <CourseVideo titleProduct={title}/>
+            <CourseVideo titleProduct={title} urlImageProduct={image}/>
             <MenuContent descripProduct={description} priceProduct={price} categoryProduct={category}/>
           </section>
           <section className="productoPage_pageContent_sectionTwo">
-            <CourseContent />
-            <StudentBought titleProduct={title} urlImageProduct={image} priceProduct={price} />
+            <CourseContent titleProduct={title} priceProduct={price} categoryProduct={category} rating={rating} />
+            <StudentBought titleProduct={title} urlImageProduct={image} priceProduct={price}  />
           </section>
         </div>
       </div>

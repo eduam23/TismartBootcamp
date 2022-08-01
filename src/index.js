@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import App from './App';
 import './index.css';
-import ProductDetails from './pages/ProductDetails/ProductDetails'
+// import CourseList from './pages/CourseList/CourseList';
+// import ProductDetails from './pages/ProductDetails/ProductDetails'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <ProductDetails id={1} />
+    <App />
 );
 

@@ -1,32 +1,27 @@
 
-## Tismart - Reto 1 - Mauricio Aguirre
+## Tismart - Reto 2 - Mauricio Aguirre
 
-Saludos, un gusto poder realizar esta primera presentación, les dejo con la resolución del reto 1 para Tismart.
+Saludos, un gusto poder realizar esta primera presentación, les dejo con la resolución del reto 2 para Tismart.
 
-### Tecnologías usadas
-- HTML
-- CSS (Flex)
-- Material-icons (Material-ui)
-- JS (Fetch)
-- ReactJS (Hooks)
+### Tecnologías añadidas
 
+- Material-ui
+- styled-components
+- React Router DOM (useParams)
 
-Para la estructura básica HTML y los estilos con CSS, se usó flex para la disposición de los contenedores y items.
+Se utilizaron componentes de material-ui como la progress bar, el table cell y table row, además, se añadió styled-components para el mejor manejo de estilos de estos componentes.
 
-Para resolver los iconos se trabajó con material-ui instalados por npm.
-
-Para la consulta del API, se utilizó Fetch para resolver la consulta al API.
-
-La librería usado es ReactJS por conocimiento y facilidad de trabajo con los componentes, Hooks y los loaders mediante default props.
-
+Se añadió react router dom para el enrutamiento entre el listado general de los producto hacia el detallado, además, se utilizó useParams para mandar el id del producto seleccinado por el enlace.
 
 ### Ejecución
 
-En la carpeta ./Reto 1 instalar los paquetes necesarios de npm junto con material-icons, luego levantar el proyecto
+En la carpeta instalar los paquetes necesarios de npm junto con material-icons, luego levantar el proyecto
 
 ```bash
-  npm install
-  npm install material-icons
+  npm i @mui/material @emotion/react @emotion/styled
+  npm i @mui/material @mui/styled-engine-sc styled-components
+  npm i material-icons
+  npm i react-router-dom
   npm start
 ```
     
@@ -34,4 +29,4 @@ En la carpeta ./Reto 1 instalar los paquetes necesarios de npm junto con materia
 
     Se realizó un despliegue rápido desde github a netlify
 
- - [Reto_1_Mauricio_Aguirre_Tismart_Bootcamp](https://reto1bootcamptismart.netlify.app/)
+ - [Reto_2_Mauricio_Aguirre_Tismart_Bootcamp](https://reto2tismartmauricioaguirre.netlify.app/)

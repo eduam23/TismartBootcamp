@@ -12,10 +12,16 @@
     color: rgb(49, 49, 49);
 }
 
+.courseVideoContent_reactPlayer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .courseVideoContent_reactPlayerContent{
-    width: 100% !important;
-    max-width: 896px !important;
-    min-height: 504px !important;
+    width: 60% !important;
+    max-width: 640px !important;
     border-radius: 10px !important;
 }
 
