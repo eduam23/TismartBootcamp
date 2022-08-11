@@ -36,7 +36,7 @@ function ProductCard({ id = 1, title="Cargando...",category = "...", price = 0.0
 
   return (
     <div className="productCardContent">
-      <Link to={"producto/"+id} style={linkStyle}>
+      <Link to={`${id}`} style={linkStyle}>
         <div className="productCardContent_image">
           <img src={image} alt={title} />
           <h3>{title}</h3>

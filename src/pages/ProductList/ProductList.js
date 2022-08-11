@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ProductCard from "../../components/CourseCard/ProductCard";
+import ProductCard from "../../components/ProductCard/ProductCard";
 import NavBar from "../../components/NavBar/NavBar";
 import SideBar from "../../components/SideBar/SideBar";
 import { getProducts } from "../../services/ProductoService";
@@ -229,7 +229,7 @@ function ProductList() {
   const handleChangeDense = (event) => {
     setDense(event.target.checked);
   };
-
+ 
   const loadAllProducts = async () => {
     let res = await getProducts();
     res.data.sort((a, b) => b.rating.rate - a.rating.rate);
@@ -240,7 +240,7 @@ function ProductList() {
 
   const loadLowCostProducts = async () => {
     let res = await getProducts();
-    res.data.sort((a, b) => a.rating.rate - b.rating.rate);
+    res.data.sort((a, b) => a.price - b.price);
     const resSplice = res.data.splice(0, 4);
     setProducts(resSplice);
     // console.log(resSplice);
@@ -295,6 +295,7 @@ function ProductList() {
       results = rawProducts.filter( (row) => {
           return row.title.toLowerCase().includes(e.target.value.toLowerCase())})
       setRows(results);
+      setPage(results.length < rowsPerPage ? 0 : page);
     }
     
   }
@@ -303,7 +304,7 @@ function ProductList() {
     <>
       <SideBar />
       <div className="productListContent">
-        <NavBar handleRowsFilter={handleRowsFilter} />
+        <NavBar handleRowsFilter={handleRowsFilter}  />
         <div className="productListContent_main">
           <h1>Products</h1>
           <nav>

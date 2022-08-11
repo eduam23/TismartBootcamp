@@ -1,0 +1,102 @@
+
+
+.loginPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+}
+
+.loginPage_form {
+    width: 450px;
+    height: 450px;
+    background-color: rgb(0, 110, 255, 0.55);
+    position: relative;
+    padding: 0.5rem;
+    border-radius: 100%;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.loginPage_form h1 {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.loginPage_formContent {
+    position: relative;
+    top:0.7rem;
+    left: 6rem;
+    width: 350px;
+    height: 350px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #fff;
+    border-radius: 100%;
+    box-shadow: rgba(0, 110, 255, 0.4) 5px 5px, rgba(0, 110, 255, 0.3) 10px 10px, rgba(0, 110, 255, 0.2) 15px 15px, rgba(0, 110, 255, 0.1) 20px 20px, rgba(0, 110, 255, 0.05) 25px 25px;
+}
+
+.loginPage_formContent label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    height: auto;
+    margin-left: 4rem;
+}
+
+.loginPage_formContent input {
+    width: 60%;
+    margin:  0.5rem auto;
+    padding: 0.5rem ;
+    overflow: auto;
+}
+
+.loginPage_formContent button {
+    width: 60%;
+    height: auto;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.loginPage_formContent button:hover{
+    z-index: 3;
+    background-color: rgb(0, 110, 255);
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    cursor: pointer;
+}
+
+.loginPage_formContent button:disabled{
+    background-color: rgba(0, 0, 0, 0.219);
+    color: rgb(255, 255, 255);
+    box-shadow: none;
+    cursor: auto;
+}
+
+.loginPage_form span {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: rgb(102, 100, 100);
+    margin: 0 0 0.1rem 4rem; 
+}
+
+.loginPage_form span:nth-child(odd) {
+    margin-bottom: 1rem;
+}
