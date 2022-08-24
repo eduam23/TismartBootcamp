@@ -23,7 +23,7 @@ function LoginPage() {
     e.preventDefault();
     try {
       const {data} = await getAuthToken(credenciales);
-      login(data.token);
+      login(data.token, 4);
       swal({
         title: "Ingresaste correctamente",
         text: "Clikea en siguiente para continuar",

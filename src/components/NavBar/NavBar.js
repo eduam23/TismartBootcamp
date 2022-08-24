@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 import SearchIcon from "@mui/icons-material/Search";
 import CircleIcon from "@mui/icons-material/Circle";
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
@@ -9,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { AppContext } from "../../context/AppContext";
 import swal from "sweetalert";
 
-function NavBar({ handleRowsFilter }) {
+function NavBar({ handleRowsFilter, handleRowsFilterClick, products }) {
   const navigate = useNavigate();
   const { logout } = useContext(AppContext);
 
@@ -37,13 +39,39 @@ function NavBar({ handleRowsFilter }) {
         <label htmlFor="searchInput">
           <SearchIcon className="navbar_searchInput_searchIcon" />
         </label>
-        <input
+        {
+          !products
+        ? (
+          <input
             type="text"
             placeholder="search product..."
             id="searchInput"
             onChange={handleRowsFilter}
           ></input>
+        ) 
+        : 
+        (
+          <Autocomplete
+            freeSolo
+            disableClearable
+            onInputChange={handleRowsFilter}
+            onChange={handleRowsFilterClick}
+            style={{ width: 350 }}
+            options={products.map((product) => product.title)}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                InputProps={{
+                  ...params.InputProps,
+                  type: "search",
+                }}
+              />
+            )}
+          />
+        )
+        }
       </div>
+
       <div className="navbar_icons">
         <div className="navbar_icons_newMessage">
           <span className="navbar_icons_newMessage_flag">

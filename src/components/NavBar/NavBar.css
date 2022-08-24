@@ -37,6 +37,10 @@
     outline: none;
 }
 
+fieldset {
+    border-width: 0 !important;
+}
+
 .navbar_icons {
     width: 200px;
     display: flex;

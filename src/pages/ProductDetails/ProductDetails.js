@@ -22,7 +22,7 @@ function ProductDetails() {
           .then(json=>setProducto(json))
   }, [id])
 
-  // console.log(producto):
+  // console.log(producto);
 
   const {title, description, price, category, image, rating} = producto;
 

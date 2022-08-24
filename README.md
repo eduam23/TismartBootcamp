@@ -1,7 +1,9 @@
 
-## Tismart - Reto 2 - Mauricio Aguirre
+## Tismart - Reto 3 - Mauricio Aguirre (ACTUALIZACIÓN)
 
 Saludos, un gusto poder realizar esta primera presentación, les dejo con la resolución del reto 3 para Tismart.
+
+*Añadidos Autocomplete en el buscador del navegador y el tiempo de expiración para el token del localStorage
 
 ### Tecnologías añadidas
 

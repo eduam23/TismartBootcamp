@@ -196,7 +196,7 @@ function ProductList() {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [productsList, setProductsList] = useState([]);
   const [products, setProducts] = useState([]);
-  const [rawProducts , setRawProducts ] = useState([])
+  const [rawProducts, setRawProducts] = useState([]);
   const [rows, setRows] = useState([]);
 
   const handleRequestSort = (event, property) => {
@@ -229,7 +229,7 @@ function ProductList() {
   const handleChangeDense = (event) => {
     setDense(event.target.checked);
   };
- 
+
   const loadAllProducts = async () => {
     let res = await getProducts();
     res.data.sort((a, b) => b.rating.rate - a.rating.rate);
@@ -266,13 +266,35 @@ function ProductList() {
   useEffect(() => {
     loadAllProducts();
     loadProductsList();
-    
   }, []);
 
   useEffect(() => {
-    const loadRows = () =>{
+    setRows(
+      productsList.map((product) => {
+        return createData(
+          product.title,
+          product.category,
+          product.price,
+          product.rating.rate,
+          product.rating.count
+        );
+      })
+    );
+  }, [productsList]);
+
+  const handleRowsFilter = (e) => {
+    let results = [];
+
+    if (rows.length<=0) {
+      loadProductsList();
+    }
+
+    if (e.target.value) {
+      results = rawProducts.filter((row) => {
+        return row.title.toLowerCase().includes(e.target.value.toLowerCase());
+      });
       setRows(
-        productsList.map((product) => {
+        results.map((product) => {
           return createData(
             product.title,
             product.category,
@@ -281,30 +303,48 @@ function ProductList() {
             product.rating.count
           );
         })
-      )
-    }
-    loadRows();
-  
-  }, [productsList]);
-  
-  const handleRowsFilter = (e) =>{
-    let results = [];
-    if(!e.target.value){
-      loadProductsList();
-    }else{
-      results = rawProducts.filter( (row) => {
-          return row.title.toLowerCase().includes(e.target.value.toLowerCase())})
-      setRows(results);
+      );
       setPage(results.length < rowsPerPage ? 0 : page);
     }
+  };
+
+  const handleRowsFilterClick = (e) => {
+    let results = [];
     
-  }
+    if (rows.length<=0) {
+      loadProductsList();
+    }
+
+    if (e.target.innerText) {
+      results = rawProducts.filter((row) => {
+        return row.title
+          .toLowerCase()
+          .includes(e.target.innerText.toLowerCase());
+      });
+      setRows(
+        results.map((product) => {
+          return createData(
+            product.title,
+            product.category,
+            product.price,
+            product.rating.rate,
+            product.rating.count
+          );
+        })
+      );
+      setPage(results.length < rowsPerPage ? 0 : page);
+    }
+  };
 
   return (
     <>
       <SideBar />
       <div className="productListContent">
-        <NavBar handleRowsFilter={handleRowsFilter}  />
+        <NavBar
+          handleRowsFilter={handleRowsFilter}
+          handleRowsFilterClick={handleRowsFilterClick}
+          products={rawProducts}
+        />
         <div className="productListContent_main">
           <h1>Products</h1>
           <nav>
@@ -335,88 +375,82 @@ function ProductList() {
             )}
           </div>
 
-          <Box sx={{ width: "100%" }} className="productListContent_main_productsList">
-              <Paper sx={{ width: "100%", mb: 2 }}>
-                <EnhancedTableToolbar numSelected={selected.length} />
-                <TableContainer>
-                  <Table
-                    sx={{ minWidth: 750 }}
-                    aria-labelledby="tableTitle"
-                    size={dense ? "small" : "medium"}
-                  >
-                    <EnhancedTableHead
-                      numSelected={selected.length}
-                      order={order}
-                      orderBy={orderBy}
-                      onSelectAllClick={handleSelectAllClick}
-                      onRequestSort={handleRequestSort}
-                      rowCount={rows.length}
-                    />
-                    <TableBody>
-                      {
-                        stableSort(rows, getComparator(order, orderBy))
-                          .slice(
-                            page * rowsPerPage,
-                            page * rowsPerPage + rowsPerPage
-                          )
-                          .map((row, index) => {
-                            const labelId = `enhanced-table-checkbox-${index}`;
+          <Box
+            sx={{ width: "100%" }}
+            className="productListContent_main_productsList"
+          >
+            <Paper sx={{ width: "100%", mb: 2 }}>
+              <EnhancedTableToolbar numSelected={selected.length} />
+              <TableContainer>
+                <Table
+                  sx={{ minWidth: 750 }}
+                  aria-labelledby="tableTitle"
+                  size={dense ? "small" : "medium"}
+                >
+                  <EnhancedTableHead
+                    numSelected={selected.length}
+                    order={order}
+                    orderBy={orderBy}
+                    onSelectAllClick={handleSelectAllClick}
+                    onRequestSort={handleRequestSort}
+                    rowCount={rows.length}
+                  />
+                  <TableBody>
+                    {stableSort(rows, getComparator(order, orderBy))
+                      .slice(
+                        page * rowsPerPage,
+                        page * rowsPerPage + rowsPerPage
+                      )
+                      .map((row, index) => {
+                        const labelId = `enhanced-table-checkbox-${index}`;
 
-                            return (
-                              <TableRow hover tabIndex={-1} key={row.title}>
-                                <TableCell padding="checkbox"></TableCell>
-                                <TableCell
-                                  component="th"
-                                  id={labelId}
-                                  scope="row"
-                                  padding="none"
-                                >
-                                  {row.title}
-                                </TableCell>
-                                <TableCell align="right">
-                                  s/. {row.price}
-                                </TableCell>
-                                <TableCell align="right">{row.rate}</TableCell>
-                                <TableCell align="right">{row.count}</TableCell>
-                                <TableCell align="right">
-                                  {row.category}
-                                </TableCell>
-                              </TableRow>
-                            );
-                          })
-                      }
-                      {emptyRows > 0 && (
-                        <TableRow
-                          style={{
-                            height: (dense ? 33 : 53) * emptyRows,
-                          }}
-                        >
-                          <TableCell colSpan={6} />
-                        </TableRow>
-                      )}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-                <TablePagination
-                  rowsPerPageOptions={[5, 10, 25]}
-                  component="div"
-                  count={rows.length}
-                  rowsPerPage={rowsPerPage}
-                  page={page}
-                  onPageChange={handleChangePage}
-                  onRowsPerPageChange={handleChangeRowsPerPage}
-                />
-              </Paper>
-              <FormControlLabel
-                control={
-                  <Switch checked={dense} onChange={handleChangeDense} />
-                }
-                label="Dense padding"
+                        return (
+                          <TableRow hover tabIndex={-1} key={row.title}>
+                            <TableCell padding="checkbox"></TableCell>
+                            <TableCell
+                              component="th"
+                              id={labelId}
+                              scope="row"
+                              padding="none"
+                            >
+                              {row.title}
+                            </TableCell>
+                            <TableCell align="right">s/. {row.price}</TableCell>
+                            <TableCell align="right">{row.rate}</TableCell>
+                            <TableCell align="right">{row.count}</TableCell>
+                            <TableCell align="right">{row.category}</TableCell>
+                          </TableRow>
+                        );
+                      })}
+                    {emptyRows > 0 && (
+                      <TableRow
+                        style={{
+                          height: (dense ? 33 : 53) * emptyRows,
+                        }}
+                      >
+                        <TableCell colSpan={6} />
+                      </TableRow>
+                    )}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+              <TablePagination
+                rowsPerPageOptions={[5, 10, 25]}
+                component="div"
+                count={rows.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
               />
-            </Box>
+            </Paper>
+            <FormControlLabel
+              control={<Switch checked={dense} onChange={handleChangeDense} />}
+              label="Dense padding"
+            />
+          </Box>
         </div>
       </div>
-      
     </>
   );
 }
