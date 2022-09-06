@@ -7,6 +7,8 @@ import StudentBought from "../../components/StudentBought/StudentBought";
 import "./ProductDetails.css";
 import CourseVideo from "../../components/CourseVideo/CourseVideo";
 import { useParams } from "react-router-dom";
+import { getProductById } from "../../services/ProductoService";
+
 
 
 
@@ -16,10 +18,16 @@ function ProductDetails() {
 
   const [producto, setProducto] = useState({})
 
+  const getProduct = async( id ) =>{
+    let res = await getProductById(id);
+    setProducto(res.data);
+  }
+
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
-          .then(res=>res.json())
-          .then(json=>setProducto(json))
+    // fetch(`https://fakestoreapi.com/products/${id}`)
+    //       .then(res=>res.json())
+    //       .then(json=>setProducto(json))
+    getProduct(id);
   }, [id])
 
   // console.log(producto);

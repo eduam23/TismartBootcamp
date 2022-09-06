@@ -1,8 +1,12 @@
 import axios from "axios";
-import { API_LOGIN } from "../utils/Config";
+import { URL_BASE } from "../utils/Config";
 
-export const getAuthToken = async (credentials) => {
+export const getAuthToken = async(credentials) => {
+
     // console.log(credentials);
-    let res = await axios.post(API_LOGIN, credentials);
+
+    const res = await axios.post(`${URL_BASE}/auth/login`, credentials);
+    // console.log(res);
+
     return res;
 };

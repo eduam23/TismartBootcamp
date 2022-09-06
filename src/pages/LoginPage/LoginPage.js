@@ -23,7 +23,7 @@ function LoginPage() {
     e.preventDefault();
     try {
       const {data} = await getAuthToken(credenciales);
-      login(data.token, 4);
+      login(data.user.token, 4);
       swal({
         title: "Ingresaste correctamente",
         text: "Clikea en siguiente para continuar",
@@ -32,6 +32,7 @@ function LoginPage() {
       });
       navigate("/producto");
     } catch (error) {
+      console.log(error)
       swal({
         title: "Usuario o contraseña incorrectos",
         text: "Clikea en siguiente para continuar",
@@ -47,17 +48,17 @@ function LoginPage() {
       <h1>.Omni</h1>
       <form className="loginPage_formContent" onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
-        <input type="text" id="username" autoComplete="off" placeholder="Username *" name="username" onChange={handleChangeCredencial} required/>
+        <input type="text" id="username"  placeholder="Username *" name="username" autoComplete="off" onChange={handleChangeCredencial} required/>
         {
           credenciales.username.length<=7
-          ? <span><i>e.g. "mor_2314"</i></span>
+          ? <span><i>e.g. "maria@gmail.com"</i></span>
           : null
         }
         <label htmlFor="password">Password</label>
-        <input type="password" id="password" autoComplete="off" placeholder="Password *" name="password" onChange={handleChangeCredencial} required/>
+        <input type="password" id="password" autoComplete="off" placeholder="Password *" name="password"  onChange={handleChangeCredencial} required/>
         {
           credenciales.password.length<=5
-          ? <span><i>e.g. "83r5^_"</i></span>
+          ? <span><i>e.g. "83r5^@"</i></span>
           : null
         }
         <button type="submit" disabled={ !credenciales.username | !credenciales.password ? true : false }>Login</button>

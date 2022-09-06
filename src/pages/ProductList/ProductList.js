@@ -199,6 +199,7 @@ function ProductList() {
   const [rawProducts, setRawProducts] = useState([]);
   const [rows, setRows] = useState([]);
 
+
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -230,7 +231,7 @@ function ProductList() {
     setDense(event.target.checked);
   };
 
-  const loadAllProducts = async () => {
+  const loadAllProducts = async() => {
     let res = await getProducts();
     res.data.sort((a, b) => b.rating.rate - a.rating.rate);
     const resSplice = res.data.splice(0, 4);
@@ -238,7 +239,7 @@ function ProductList() {
     // console.log(resSplice);
   };
 
-  const loadLowCostProducts = async () => {
+  const loadLowCostProducts = async() => {
     let res = await getProducts();
     res.data.sort((a, b) => a.price - b.price);
     const resSplice = res.data.splice(0, 4);
@@ -246,7 +247,7 @@ function ProductList() {
     // console.log(resSplice);
   };
 
-  const loadProductsList = async () => {
+  const loadProductsList = async() => {
     let res = await getProducts();
     setProductsList(res.data);
     // console.log(productsList);
